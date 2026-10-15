@@ -1,0 +1,11 @@
+Master: any
+# Expect: failed
+# FailAfter (spec 0025) is a dispatch-time guard, not a timer: "00:00" on the
+# RunDate is already in the past by the time anything is dispatched, so this
+# job fails without ever running (`borg history` shows fail_after, no
+# dispatched). Its dependent below stays `waiting`: a failure does not release
+# dependents. (Meant for an already-started RunDate; on a preloaded T+1 the
+# deadline is still in the future until its own midnight.)
+Command: echo "you should never see this"
+Host: any
+FailAfter: 00:00

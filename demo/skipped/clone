@@ -1,0 +1,8 @@
+Master: any
+# Expect: any   (depends on the weekday and the time of day, so it is shown but not asserted)
+# Business days only, after 06:00 UTC
+Command: echo "cloning repo"; sleep 1
+Days: b
+StartAfter: 06:00
+FailAfter: 22:00
+Host: any

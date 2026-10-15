@@ -1,0 +1,21 @@
+Master: any
+# Expect: waiting
+# ParkAfter demo (specs 0030/0024): a clone proto whose clones are created but held back for an
+# operator. CloneParkAfter (00:00) is earlier than CloneStartAfter (00:01), so both deadlines are
+# behind us the moment a clone exists — and a job initialized at or after its ParkAfter is parked
+# on entry instead of being dispatched: each clone lands in `manual` (event `park_after`) and
+# nothing runs by itself.
+#
+# Unpark a clone to run it (borg unpark demo/clones/manual_books~book1, or the UI button); it runs
+# at once, since StartAfter has passed. Unparking after the ParkAfter deadline sticks — the clone
+# is not re-parked. Do the clones one by one, in any order; demo/clones/manual_summary waits for
+# all of them. (A `rerun`/`clean` of a clone parks it again, being past the deadline.)
+#
+# CloneParkAfter (not ParkAfter) on purpose: a plain ParkAfter here would also park the proto
+# itself, and a parked proto never completes. The proto only waits on its clones.
+Type: clone
+CloneListSource: PROC<demo/clones/gen_books>
+CloneParkAfter: 00:00
+CloneStartAfter: 00:01
+Command: echo "manually released: %<book> (tag %<clone>)"
+Host: any

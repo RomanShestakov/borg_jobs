@@ -1,0 +1,9 @@
+Master: any
+# Expect: succeeded
+# RepeatCode narrows which exit code repeats: this one exits 3 on its first attempt (a code in RepeatCode, so it
+# repeats after RepeatInterval minutes) and 0 on the second.
+Command: f="${TMPDIR:-/tmp}/borg_regression_repeat_code_$BORG_RUN_DATE"; if [ -f "$f" ]; then rm -f "$f"; echo "second attempt: ok"; exit 0; else touch "$f"; echo "first attempt: exiting 3"; exit 3; fi
+Host: any
+RepeatCode: 3
+RepeatCount: 2
+RepeatInterval: 1

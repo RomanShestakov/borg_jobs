@@ -1,0 +1,7 @@
+Master: any
+# Expect: any   (waits for the previous RunDate's job: on a cluster's first day there is none, from the second day it opens)
+# A gate across RunDates: the previous day's demo/hello_world. Until that RunDate is loaded and the job has
+# succeeded the gate sits `waiting`; this is the only way a job can depend on another day.
+Type: gate
+Target: T-1/demo/hello_world
+Host: any

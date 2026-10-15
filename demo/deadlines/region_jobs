@@ -1,0 +1,14 @@
+Master: any
+# Expect: waiting
+# Per-clone deadlines (specs 0024, 0028, 0029): CloneStartAfter, CloneFailAfter
+# and CloneKillAfter are templates, substituted per clone from its own report
+# line and then parsed with StartAfter/FailAfter/KillAfter's grammar — so the
+# clones of one proto can have different deadlines. Without them a clone just
+# inherits the proto's own StartAfter/FailAfter/KillAfter (none set here).
+Type: clone
+CloneListSource: PROC<demo/deadlines/gen_regions>
+CloneStartAfter: %<start>
+CloneFailAfter: %<fail>
+CloneKillAfter: %<kill>
+Command: echo "region %<clone>: running %<secs>s"; sleep %<secs>
+Host: any

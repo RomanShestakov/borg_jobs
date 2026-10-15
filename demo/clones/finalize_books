@@ -1,0 +1,15 @@
+Master: any
+# Expect: succeeded
+# A second InterleaveOn demo (spec 0016), showing the *list* form: unlike
+# archive_books (a linear chain, one InterleaveOn target), this proto names two
+# protos at once, so each finalize_books clone is a per-tag fan-in join —
+# finalize_books~book1 depends on BOTH run_risk_reports~book1 AND
+# notify_books~book1, not on either cluster's whole barrier. All three source
+# clusters read the same demo/clones/gen_books report, so a book's risk report and
+# its notification can run in parallel; finalization only waits for that one
+# book's own pair, never for a different book's still-running work.
+Type: clone
+CloneListSource: PROC<demo/clones/gen_books>
+InterleaveOn: demo/clones/run_risk_reports, demo/clones/notify_books
+Command: echo "finalizing: %<book> (risk report + notification both done for %<clone>)"
+Host: any

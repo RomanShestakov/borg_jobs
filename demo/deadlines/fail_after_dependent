@@ -1,0 +1,7 @@
+Master: any
+# Expect: waiting
+# Stays `waiting` forever behind demo/deadlines/fail_after_past (failed is not
+# terminal-ok). Contrast with demo/deadlines/cancel_after_dependent.
+Command: echo "never runs: dependency failed"
+Host: any
+DependsOn: demo/deadlines/fail_after_past

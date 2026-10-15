@@ -1,0 +1,12 @@
+Master: any
+# Expect: succeeded
+# Repeat jobs (spec 0021): RepeatCount lets a failing job re-run automatically
+# instead of going straight to `failed`. This one fails on its first two
+# attempts (tracked in a scratch counter file keyed by RunDate) and succeeds
+# on the third, so watching it in the UI shows failed -> (RepeatInterval
+# delay) -> failed -> succeeded instead of stopping after one attempt.
+# No RepeatCode is set, so any non-zero exit counts toward a repeat.
+Command: n=$(cat /tmp/borg_demo_retry_$BORG_RUN_DATE 2>/dev/null || echo 0); n=$((n+1)); echo "$n" > /tmp/borg_demo_retry_$BORG_RUN_DATE; echo "attempt $n"; if [ "$n" -lt 3 ]; then echo "failing on purpose"; exit 1; else echo "succeeding on attempt $n"; rm -f /tmp/borg_demo_retry_$BORG_RUN_DATE; exit 0; fi
+Host: any
+RepeatCount: 3
+RepeatInterval: 1

@@ -1,0 +1,5 @@
+Master: any
+# Expect: succeeded
+# A diamond: a -> (b, c) -> d. d waits for both branches.
+Command: echo "a"
+Host: any

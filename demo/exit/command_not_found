@@ -1,0 +1,5 @@
+Master: any
+# Expect: failed
+# A command that does not exist fails with exit 127 and the shell's message in the job's output.
+Command: borg_regression_no_such_command_xyz
+Host: any

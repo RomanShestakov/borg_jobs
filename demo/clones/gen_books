@@ -1,0 +1,11 @@
+Master: any
+# Expect: succeeded
+# Clone generator (spec 0015): captured stdout, marked with Flag: -r, is a
+# clone report — one line per clone to create, first word the tag, the rest
+# key:=value params a clone proto can substitute into its own Command.
+# BEGIN_CLONE_REPORT/END_CLONE_REPORT let a generator log freely around the
+# report itself (a real one might print "connecting...", "found 3 books...");
+# everything outside the markers is ignored.
+Command: echo "connecting to book service..."; echo "BEGIN_CLONE_REPORT"; echo "book1 book:=AAPL report:=risk"; echo "book2 book:=MSFT report:=risk"; echo "book3 book:=GOOG report:=pnl"; echo "END_CLONE_REPORT"; echo "done"
+Flag: -r
+Host: any

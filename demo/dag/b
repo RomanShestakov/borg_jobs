@@ -1,0 +1,5 @@
+Master: any
+# Expect: succeeded
+Command: echo "b (after a)"
+DependsOn: demo/dag/a
+Host: any

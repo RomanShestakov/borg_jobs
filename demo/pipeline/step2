@@ -1,0 +1,5 @@
+Master: any
+# Expect: succeeded
+Command: echo "step2 runs after step1"
+Host: any
+DependsOn: demo/pipeline/step1

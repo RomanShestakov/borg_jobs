@@ -1,0 +1,8 @@
+Master: any
+# Expect: succeeded
+# A gate job (Type: gate) waits for another job and never runs anything itself. Its Target is
+# <RunDate reference>/<job>: `T` is this job's own RunDate, so this one opens once demo/pipeline/step1 of
+# the same day has succeeded.
+Type: gate
+Target: T/demo/pipeline/step1
+Host: any

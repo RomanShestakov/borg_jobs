@@ -1,0 +1,12 @@
+# Access policy for this dev cluster (spec 0033). Not in force until:  borg admin reload-policy
+#
+# Docket is the trusted proxy: it signs requests from the dashboard as the cluster's owner, in the
+# group docket-owner. Naming that group ClusterAdmin is what lets the admin page offer the
+# "force single node" button (spec 0057). Because a policy makes "no grant" mean "no access", the
+# owner group is also granted everything over jobs, so the dashboard keeps working as before.
+#
+# The CLI over Erlang distribution (the cookie) is not subject to the policy.
+ClusterAdmin: group:docket-owner
+
+Namespace: **
+Grant:     group:docket-owner=view+operate+edit

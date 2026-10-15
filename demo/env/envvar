@@ -1,0 +1,7 @@
+Master: any
+# Expect: succeeded
+# EnvVar sets variables in the command's environment on the agent, beside the ones borg always adds
+# (BORG_RUN_DATE, BORG_JOB, BORG_RUN_ID). Fails if any is missing.
+Command: [ "$GREETING" = "hello" ] && [ -n "$BORG_RUN_DATE" ] && [ -n "$BORG_JOB" ] && [ -n "$BORG_RUN_ID" ] && echo "environment ok: $BORG_JOB on $BORG_RUN_DATE (run $BORG_RUN_ID)"
+EnvVar: GREETING=hello
+Host: any

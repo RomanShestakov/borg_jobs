@@ -1,0 +1,11 @@
+# Drops RunDates beyond rundates_keep (see spec 0009).
+#
+# No EnvVar here: BORG_COOKIE must come from the agent's own process environment, not a
+# hardcoded override — see admin/load_next_rundate's own comment for why.
+Master: any
+Command: borg admin retire-rundates
+Host: any
+Days: d
+DependsOn: admin/load_next_rundate
+Timeout: 300
+RepeatCount: 3

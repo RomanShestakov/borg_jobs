@@ -1,0 +1,8 @@
+Master: any
+# Expect: failed
+# With RepeatCode set, any other non-zero exit fails at once, whatever RepeatCount is left.
+Command: echo "exiting 5, which is not the RepeatCode"; exit 5
+Host: any
+RepeatCode: 3
+RepeatCount: 3
+RepeatInterval: 1

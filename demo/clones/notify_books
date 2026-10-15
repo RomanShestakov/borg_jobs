@@ -1,0 +1,16 @@
+Master: any
+# Expect: succeeded
+# A second clone cluster sharing the same generator as demo/clones/run_risk_reports:
+# CloneDependsOn (spec 0015) makes each of *this* proto's clones depend on
+# the same-tagged clone over there — "<proto>~<tag>" (the proto's full,
+# hierarchical name — job names are the path under jobs_dir/, same as any
+# other DependsOn), with %<clone> filling in the tag — so
+# notify_books~book1 waits for run_risk_reports~book1 to succeed before it
+# runs, notify_books~book2 for run_risk_reports~book2, etc. If
+# run_risk_reports hasn't expanded yet, that's an ordinary `waiting`
+# dependency, not `unrunnable` — see CLAUDE.md's Job FSM section.
+Type: clone
+CloneListSource: PROC<demo/clones/gen_books>
+CloneDependsOn: demo/clones/run_risk_reports~%<clone>
+Command: echo "notifying: %<book> report ready"
+Host: any

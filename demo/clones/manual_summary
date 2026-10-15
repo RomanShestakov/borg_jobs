@@ -1,0 +1,7 @@
+Master: any
+# Expect: waiting
+# Ordinary job that needs the whole manual_books cluster: it stays `waiting` until every clone
+# has been unparked and has succeeded, so it shows the parked clones holding their dependents.
+Command: echo "all manually released books finished"
+DependsOn: demo/clones/manual_books
+Host: any

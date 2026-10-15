@@ -1,0 +1,5 @@
+Master: any
+# Expect: succeeded
+Command: echo "business day, running for real"
+Host: any
+Days: b || Succeed

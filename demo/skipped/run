@@ -1,0 +1,8 @@
+Master: any
+# Expect: any   (depends on the weekday and the time of day, so it is shown but not asserted)
+Command: echo "running"; sleep 1
+Days: b
+DependsOn: demo/skipped/clone, demo/skipped/gen
+FailAfter: 23:00
+Timeout: 3600
+Host: any

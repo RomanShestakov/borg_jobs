@@ -1,0 +1,13 @@
+Master: any
+# Expect: succeeded
+# Ordinary (non-clone) job depending directly, via plain DependsOn, on
+# specific clones that do not exist yet when this RunDate loads — they are
+# only created once demo/clones/run_risk_reports and demo/clones/notify_books
+# expand their shared generator's report. Because this is plain DependsOn
+# (not CloneDependsOn), there is no unrunnable/validation check: the job just
+# sits `waiting`, resolved by ordinary name lookup once run_risk_reports~book1
+# and notify_books~book2 are defined and reach succeeded — see CLAUDE.md's Job
+# FSM section.
+Command: echo "summary: book1 risk report done, book2 notified"
+DependsOn: demo/clones/run_risk_reports~book1, demo/clones/notify_books~book2
+Host: any

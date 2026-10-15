@@ -1,0 +1,14 @@
+# Puts the working-day calendar files in force (spec 0061): <jobs_dir>/calendars/<name>.calendar.
+# It runs before admin/load_next_rundate because a RunDate takes its calendars when it is loaded,
+# so a calendar edited during the day is in force for the RunDate loaded the next morning.
+#
+# Deliberately NOT a dependency of admin/load_next_rundate: a calendar file with a mistake makes
+# this job fail (visibly, and repeated), the calendars already in force stay, and tomorrow's RunDate
+# still loads. With no calendars/ directory it stores an empty set and succeeds.
+Master: any
+Command: borg admin reload-calendars
+Host: any
+Days: d
+StartAfter: 08:30
+Timeout: 300
+RepeatCount: 3

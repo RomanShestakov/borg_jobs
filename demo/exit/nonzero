@@ -1,0 +1,5 @@
+Master: any
+# Expect: failed
+# A plain failure: a non-zero exit with no RepeatCount fails the job at once.
+Command: echo "exiting 7"; exit 7
+Host: any

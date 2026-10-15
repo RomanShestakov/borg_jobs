@@ -1,0 +1,7 @@
+Master: any
+# Expect: succeeded
+# A clone proto over an empty report succeeds at once, with no clones (and releases its dependents).
+Type: clone
+CloneListSource: PROC<demo/clones/empty_gen>
+Command: echo "never runs: no clones"
+Host: any

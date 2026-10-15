@@ -1,0 +1,7 @@
+Master: any
+# Expect: succeeded
+# KillAfter far in the future: the timer is armed, the job finishes on its own
+# and the timer is disarmed — nothing is killed.
+Command: echo "working"; sleep 5; echo "finished before the KillAfter deadline"
+Host: any
+KillAfter: 1+00:00

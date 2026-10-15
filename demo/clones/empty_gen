@@ -1,0 +1,6 @@
+Master: any
+# Expect: succeeded
+# A clone generator whose report is empty: nothing to fan out today.
+Command: echo "BEGIN_CLONE_REPORT"; echo "END_CLONE_REPORT"
+Flag: -r
+Host: any

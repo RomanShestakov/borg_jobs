@@ -1,0 +1,15 @@
+Master: any
+# Expect: succeeded
+# A third clone cluster, interleaved on the second (spec 0016): InterleaveOn is pure
+# sugar for "CloneDependsOn: <proto>~%<clone>" per named proto, so
+# archive_books~book1 depends directly on notify_books~book1 (not on the whole
+# notify_books cluster, and not on run_risk_reports at all) — the pipeline
+# gen_books -> run_risk_reports -> notify_books -> archive_books runs per book,
+# not as three sequential barriers. archive_books~book2 can start the moment
+# notify_books~book2 succeeds, even while notify_books~book1 or ~book3 are still
+# running.
+Type: clone
+CloneListSource: PROC<demo/clones/gen_books>
+InterleaveOn: demo/clones/notify_books
+Command: echo "archiving: %<book> (tag %<clone>)"
+Host: any

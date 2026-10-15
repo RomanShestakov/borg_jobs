@@ -1,0 +1,6 @@
+Master: any
+# Expect: failed
+# Timeout (seconds): the job is stopped when it runs longer and fails with exit code 124.
+Command: echo "sleeping past the timeout"; sleep 30
+Timeout: 2
+Host: any

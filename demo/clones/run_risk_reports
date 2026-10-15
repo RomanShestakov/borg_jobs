@@ -1,0 +1,12 @@
+Master: any
+# Expect: succeeded
+# Clone proto (spec 0015): never dispatches itself — once its generator
+# (demo/clones/gen_books) has run, it expands its report into one clone per line,
+# substituting each line's key:=value params (plus the reserved %<clone>,
+# the tag) into Command/Host/EnvVar/Extra below. Creates
+# run_risk_reports~book1, ~book2, ~book3; stays `waiting` until all three
+# are terminal-ok, then self-completes.
+Type: clone
+CloneListSource: PROC<demo/clones/gen_books>
+Command: echo "processing %<book> (%<report>) as %<clone>"
+Host: any

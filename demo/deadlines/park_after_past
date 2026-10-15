@@ -1,0 +1,7 @@
+Master: any
+# Expect: manual
+# ParkAfter (spec 0030) whose deadline has passed: instead of starting, the job is parked (`manual`), so its
+# dependents keep waiting, as with an operator's park.
+Command: echo "you should never see this"
+ParkAfter: 00:00
+Host: any

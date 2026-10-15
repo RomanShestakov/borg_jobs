@@ -1,0 +1,5 @@
+Master: any
+# Expect: manual
+Command: echo "released from manual hold"
+Host: any
+Status: Manual

@@ -1,0 +1,10 @@
+Master: any
+# Expect: failed
+# KillAfter (spec 0026) is a live timer armed when the job starts running. The
+# deadline is already past, so it fires straight away: the agent-side run is
+# cancelled and the job lands in `failed` (history: dispatched, started,
+# kill_after) instead of sleeping for ten minutes. Unlike FailAfter this
+# kills a job that *did* start.
+Command: echo "sleeping (should be killed)"; sleep 600
+Host: any
+KillAfter: 00:00

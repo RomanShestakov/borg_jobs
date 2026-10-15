@@ -1,0 +1,20 @@
+# Creates tomorrow's RunDate and loads jobs_dir into it (see spec 0009).
+# --date T+1 is resolved relative to BORG_RUN_DATE (this job's own RunDate,
+# injected by the agent), not wall-clock today, so a late or catch-up run
+# still preloads the right day.
+#
+# No EnvVar here: BORG_COOKIE for this Command's own `borg` CLI call must come from the agent's
+# own process environment (bin/agent.sh's own comment: it exports BORG_COOKIE "so a dispatched
+# admin job's Command can invoke the borg CLI"). A hardcoded `EnvVar: BORG_COOKIE=borg` here used
+# to override that inheritance with the literal string "borg" — harmless only by coincidence for
+# an installation whose real cookie happens to also be "borg" (borg's own shared dev default);
+# for any installation with its own distinct cookie, every dispatch of this job failed with
+# "Cannot reach borg node" (observed directly, isolated by diagnostic logging showing BORG_COOKIE
+# in the spawned command's actual environment as "borg" instead of the real one).
+Master: any
+Command: borg admin load-rundate --date T+1
+Host: any
+Days: d
+StartAfter: 09:00
+Timeout: 300
+RepeatCount: 3

@@ -1,0 +1,8 @@
+Master: any
+# Expect: cancelled
+# CancelAfter (spec 0027): initialisation (also every rerun/clean/repeat) at or
+# after the deadline lands the job in `cancelled` with a cancel_after event,
+# never running it. This is how a repeating job is made to stop repeating.
+Command: echo "you should never see this"
+Host: any
+CancelAfter: 00:00

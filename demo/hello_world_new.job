@@ -1,0 +1,6 @@
+Master: any
+# Expect: succeeded
+Name: demo/hello_world_new
+Command: echo "Hello from borg new!"
+Host: any
+Timeout: 60

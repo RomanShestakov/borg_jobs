@@ -1,0 +1,5 @@
+Master: any
+# Expect: succeeded
+# A lot of output (20000 lines): through the agent's limiter into borg_logd, readable and tailable afterwards.
+Command: seq 1 20000 | sed 's/^/chatty output line /'
+Host: any

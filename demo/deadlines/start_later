@@ -1,0 +1,8 @@
+Master: any
+# Expect: waiting
+# StartAfter (spec 0024): [N[d|b]+]HH:MM. "2b+10:00" is 10:00 UTC two *business*
+# days after this job's own RunDate (weekends skipped), so this job just sits
+# `waiting` for the whole demo — a plain "10:00" would mean today's RunDate.
+Command: echo "started two business days late"
+Host: any
+StartAfter: 2b+10:00
