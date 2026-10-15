@@ -1,0 +1,15 @@
+# Refreshes jobs_dir from the site's git repository on every scheduler node (spec 0065), so edited
+# calendars, jobs and policy files arrive without anyone logging in. Installed by init-jobs only when
+# BORG_JOBS_REPO is set; the repository wins over any local edit to a file it holds.
+#
+# It runs before admin/reload_calendars (08:30) and admin/load_next_rundate (09:00) but is deliberately
+# not their dependency: a failed refresh is a failed job (visible, repeated) and the files already on
+# disk are still used. A refreshed job file is read by the next RunDate's load or by `clean`; the access
+# policy is never reloaded by this job.
+Master: any
+Command: borg admin sync-jobs
+Host: any
+Days: d
+StartAfter: 08:15
+Timeout: 300
+RepeatCount: 3
