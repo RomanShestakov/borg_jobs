@@ -4,3 +4,4 @@ Name: demo/hello_world
 Command: echo "Hello from borg!"
 Host: any
 Timeout: 60
+Sensitive: 1
