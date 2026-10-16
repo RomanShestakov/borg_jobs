@@ -5,3 +5,4 @@ Name: demo/hello_world_new
 Command: echo "Hello from borg new web hook HELLO AGAIN!"
 Host: any
 Timeout: 60
+Sensitive: 2
