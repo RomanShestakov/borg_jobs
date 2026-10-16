@@ -2,6 +2,6 @@ Master: any
 # Expect: succeeded
 # webhook test: pushed to main to check the borg refresh
 Name: demo/hello_world_new
-Command: echo "Hello from borg new web hook!"
+Command: echo "Hello from borg new web hook HELLO AGAIN!"
 Host: any
 Timeout: 60
