@@ -1,0 +1,27 @@
+# A service: a command that is meant to stay up (Type: service).
+#
+# This one ticks every ten seconds, as a web server or a queue consumer would keep running. A service lives in the
+# special RunDate `service` (borg status demo/service/ticker --date service), not in a day: one long-lived
+# instance, started when the cluster has it loaded and running until someone stops it. It differs from an ordinary job:
+#   - no default Timeout (an ordinary job is stopped after 12 hours, BORG_DEFAULT_TIMEOUT);
+#   - no RunDate-relative time: no StartAfter, Days, RunUntil... (Monday-to-Friday work is an ordinary job);
+#   - RepeatCount, RepeatInterval and RepeatCode bring it back like any job: here at most five runs in total, five
+#     seconds apart, after any exit (a service says RepeatCode: any by default: one that stops has stopped doing its job),
+#     and a lost run, e.g. a host that went away, is started again too, on another agent if its Host allows.
+#
+# Two fields any long-running job may use, a service most of all:
+#   - StopGrace is how long the agent waits between TERM and KILL when it is stopped (borg cancel);
+#   - LogRoll starts a new log when the current one is full, so the newest output is always kept.
+#
+# A real server must run in the foreground (httpd -DFOREGROUND, nginx -g 'daemon off;'); `borg validate`
+# warns about the usual ways of getting this wrong. To watch it:
+#     borg status demo/service/ticker --date service
+#     borg kill demo/service/ticker --date service      (a kill is final: it is not restarted)
+Master: any
+Type: service
+Command: while true; do echo "tick $(date -u +%H:%M:%S)"; sleep 10; done
+Host: any
+StopGrace: 10s
+RepeatCount: 5
+RepeatInterval: 5s
+LogRoll: 1MB daily

@@ -1,0 +1,11 @@
+# A job that needs a service to be up: DependsOn: service:<service>.
+#
+# A service is not part of a day, so this day's job cannot name it with an ordinary dependency (which waits for a job of
+# the same RunDate to succeed, and a service does not). `service:<name>` is met while the service is running,
+# and this job waits for it. Compare demo/rununtil/report, which waits for its feed to end.
+#
+# Once demo/service/ticker is running this runs, uses it, and finishes; the service goes on.
+Master: any
+Command: echo "the ticker is up: $(date -u +%H:%M:%S)"
+Host: any
+DependsOn: service:demo/service/ticker
