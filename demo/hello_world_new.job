@@ -6,3 +6,5 @@ Command: echo "Hello from borg new web hook HELLO AGAIN!"
 Host: any
 Timeout: 60
 Sensitive: 2
+Limits: { memory: 512M, cpu: 0.5, disk: 1G }
+
