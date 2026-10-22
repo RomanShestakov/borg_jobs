@@ -1,0 +1,6 @@
+Master: any
+Name: demo/container/oom
+OCI-Image: docker.io/library/alpine:3.20
+Command: x=$(head -c 400000000 /dev/zero | tr '\0' a); echo ${#x}
+Limits: { memory: 64M }
+StartAfter: 00:00
