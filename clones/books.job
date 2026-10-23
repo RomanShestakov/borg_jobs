@@ -1,5 +1,5 @@
 Master: any
 Name: clones/books
-Command: printf 'SST1 bookname:=SST1 CloneStartAfter: 16:50 prev:=""\nSST2 bookname:=SST2 prev:=SST1\nSST3 bookname:=SST3 prev:=SST2\nSST4 bookname:=SST4 prev:=SST3\nSST5 bookname:=SST5 prev:=SST4\nSST6 bookname:=SST6 prev:=SST5\nSST7 bookname:=SST7 prev:=SST6\nSST8 bookname:=SST8 prev:=SST7\nSST9 bookname:=SST9 prev:=SST8\nSST10 bookname:=SST10 prev:=SST9\nSST11 bookname:=SST11 prev:=SST10\nSST12 bookname:=SST12 prev:=SST11\n'
+Command: printf 'SST1 bookname:=SST1 CloneStartAfter: 16:50 prev:=demo/clones/run_risk_reports \nSST2 bookname:=SST2 prev:=SST1\nSST3 bookname:=SST3 prev:=SST2\nSST4 bookname:=SST4 prev:=SST3\nSST5 bookname:=SST5 prev:=SST4\nSST6 bookname:=SST6 prev:=SST5\nSST7 bookname:=SST7 prev:=SST6\nSST8 bookname:=SST8 prev:=SST7\nSST9 bookname:=SST9 prev:=SST8\nSST10 bookname:=SST10 prev:=SST9\nSST11 bookname:=SST11 prev:=SST10\nSST12 bookname:=SST12 prev:=SST11\n'
 Flag: -r
 StartAfter: 16:40
