@@ -1,5 +1,5 @@
 Master: any
-Name: falcon
+Name: clones/falcon
 CloneListSource: PROC<books>
 Command: echo hello %<bookname>
 InterleaveOn: run
