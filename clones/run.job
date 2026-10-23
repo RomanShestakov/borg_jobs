@@ -1,7 +1,0 @@
-Master: any
-Name: clones/run
-CloneListSource: PROC<clones/books>
-DependsOn: demo/clones/run_risk_reports
-Command: echo %<bookname>
-CloneDependsOn: ~%<prev>
-CloneStartAfter: %<start>
