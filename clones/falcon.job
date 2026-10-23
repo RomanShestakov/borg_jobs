@@ -1,0 +1,6 @@
+Master: any
+Name: falcon
+CloneListSource: PROC<books>
+Command: echo hello %<bookname>
+InterleaveOn: run
+StartAfter: 18:40
