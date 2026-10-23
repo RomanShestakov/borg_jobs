@@ -1,5 +1,5 @@
 Master: any
-Name: run
+Name: clones/run
 CloneListSource: PROC<books>
 Command: echo %<bookname>
 CloneDependsOn: ~%prev
