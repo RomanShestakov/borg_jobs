@@ -1,0 +1,6 @@
+Master: any
+Name: run
+CloneListSource: PROC<books>
+Command: echo %<bookname>
+CloneDependsOn: ~%prev
+StartAfter: 18:40
