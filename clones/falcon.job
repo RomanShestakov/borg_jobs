@@ -1,6 +1,7 @@
+falcon.job:
 Master: any
 Name: clones/falcon
 CloneListSource: PROC<clones/books>
 Command: echo hello %<bookname>
-InterleaveOn: run
-CloneStartAfter: %<clonestartafter>
+InterleaveOn: clones/run
+CloneStartAfter: %<start>
