@@ -2,5 +2,5 @@ Master: any
 # Expect: waiting
 Command: echo "demo/held was unparked and finished"
 Host: any
-DependsOn: demo/held
+DependsOn: ./held
 CancelAfter: 0+12:00
