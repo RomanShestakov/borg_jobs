@@ -10,3 +10,8 @@ ClusterAdmin: group:docket-owner
 
 Namespace: **
 Grant:     group:docket-owner=view+operate+edit
+
+# Workers (spec 0106): the default pool takes jobs that name no account (the maintenance jobs and
+# every job here), so where a job runs is unchanged. Put `Accounts:` here before a job names one.
+Pool:      default
+Unowned:   yes
