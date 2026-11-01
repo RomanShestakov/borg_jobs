@@ -3,8 +3,8 @@ Master: any
 # webhook test: pushed to main to check the borg refresh
 Name: demo/hello_world_new
 Command: echo "Hello from borg new web hook HELLO AGAIN!"
-Host: any
+Host: default-macbook-air-3
 Timeout: 60
 Sensitive: 2
-Limits: { memory: 512M, cpu: 0.5, disk: 1G }
+#Limits: { memory: 512M, cpu: 0.5, disk: 1G }
 
