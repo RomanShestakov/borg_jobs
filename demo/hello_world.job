@@ -2,6 +2,6 @@ Master: any
 # Expect: succeeded
 Name: demo/hello_world
 Command: echo "Hello from borg!"
-Host: any
+Host: default-macbook-air-3
 Timeout: 60
 Sensitive: 1
