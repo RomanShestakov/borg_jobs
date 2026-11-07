@@ -1,0 +1,14 @@
+# An end-of-day job that runs only on NYSE trading days (calendar `us/nyse`, calendars/us/nyse.calendar).
+# On a weekend or an exchange holiday (Good Friday, Thanksgiving...) it does not run: with `|| Succeed` it
+# succeeds at once without dispatching, so anything depending on it is not held up; without it, it would be
+# `skipped` and its job page would say why, e.g. "not a working day: holiday Good Friday (us/nyse)".
+# 21:30 UTC is after the 16:00 New York close all year round (20:00 UTC in summer, 21:00 in winter).
+# Check a day with: borg admin calendar check us/nyse 20261126
+Master: any
+# Expect: succeeded
+Command: echo "NYSE trading day $BORG_RUN_DATE: collecting closing prices"
+Host: any
+Calendar: us/nyse
+Days: b || Succeed
+StartAfter: 21:30
+Timeout: 60
