@@ -1,0 +1,10 @@
+# An end-of-day job that runs only on holiday according to NYSE trading days (calendar `us/nyse`, calendars/us/nyse.calendar).
+# and skips the other days
+Master: any
+# Expect: skipped on most days and succeed on NYSE holidays
+Command: echo "NYSE trading day $BORG_RUN_DATE: collecting closing prices"
+Host: any
+Calendar: us/nyse
+Days: h
+StartAfter: 21:30
+Timeout: 60
