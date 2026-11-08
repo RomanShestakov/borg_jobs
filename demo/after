@@ -3,4 +3,4 @@ Master: any
 Command: echo "demo/held was unparked and finished"
 Host: any
 DependsOn: ./held
-CancelAfter: 0+12:00
+LateAfter: 0+12:00 cancel

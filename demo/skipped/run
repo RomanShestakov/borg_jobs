@@ -3,6 +3,6 @@ Master: any
 Command: echo "running"; sleep 1
 Days: b
 DependsOn: demo/skipped/clone, demo/skipped/gen
-FailAfter: 23:00
+LateAfter: 23:00 fail
 Timeout: 3600
 Host: any
