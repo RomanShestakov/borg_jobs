@@ -4,5 +4,5 @@ Master: any
 Command: echo "cloning repo"; sleep 1
 Days: b
 StartAfter: 06:00
-FailAfter: 22:00
+LateAfter: 22:00 fail
 Host: any

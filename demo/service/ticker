@@ -4,7 +4,7 @@
 # special RunDate `service` (borg status demo/service/ticker --date service), not in a day: one long-lived
 # instance, started when the cluster has it loaded and running until someone stops it. It differs from an ordinary job:
 #   - no default Timeout (an ordinary job is stopped after 12 hours, BORG_DEFAULT_TIMEOUT);
-#   - no RunDate-relative time: no StartAfter, Days, RunUntil... (Monday-to-Friday work is an ordinary job);
+#   - no RunDate-relative time: no StartAfter, Days, StopAfter (succeed)... (Monday-to-Friday work is an ordinary job);
 #   - RepeatCount, RepeatInterval and RepeatCode bring it back like any job: here at most five runs in total, five
 #     seconds apart, after any exit (a service says RepeatCode: any by default: one that stops has stopped doing its job),
 #     and a lost run, e.g. a host that went away, is started again too, on another agent if its Host allows.
