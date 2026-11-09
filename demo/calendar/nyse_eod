@@ -11,4 +11,5 @@ Host: any
 Calendar: us/nyse
 Days: b || Succeed
 StartAfter: 21:30
+CancelAfter: 22:30
 Timeout: 60
