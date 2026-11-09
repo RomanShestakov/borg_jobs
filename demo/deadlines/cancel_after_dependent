@@ -1,7 +1,7 @@
 Master: any
 # Expect: succeeded
-# Runs immediately: `cancelled` is terminal-ok, so — unlike LateAfter (fail)/StopAfter (fail),
-# which report a failure — LateAfter (cancel) releases dependents.
+# Runs immediately: `cancelled` is terminal-ok, so — unlike FailAfter/StopAfter (fail),
+# which report a failure — CancelAfter releases dependents.
 Command: echo "released because demo/deadlines/cancel_after_past was cancelled"
 Host: any
 DependsOn: demo/deadlines/cancel_after_past

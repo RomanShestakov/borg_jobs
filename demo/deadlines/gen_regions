@@ -4,7 +4,7 @@ Master: any
 # clone's own deadlines (start/fail/kill) and how long its command runs (secs):
 #   open     runs normally (all deadlines satisfied)
 #   later    its StartAfter puts its start two business days out -> `waiting`
-#   toolate  its LateAfter (fail) is already past -> fails at dispatch, never runs
+#   toolate  its FailAfter is already past -> fails at dispatch, never runs
 #   overrun  its StopAfter (fail) is already past and it sleeps 10 min -> killed
 Command: echo "BEGIN_CLONE_REPORT"; echo "open    secs:=1   start:=00:00     fail:=1+00:00 kill:=1+00:00"; echo "later   secs:=1   start:=2b+10:00  fail:=1+00:00 kill:=1+00:00"; echo "toolate secs:=1   start:=00:00     fail:=00:00   kill:=1+00:00"; echo "overrun secs:=600 start:=00:00     fail:=1+00:00 kill:=00:00"; echo "END_CLONE_REPORT"
 Flag: -r
