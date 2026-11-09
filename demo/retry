@@ -10,3 +10,4 @@ Command: n=$(cat /tmp/borg_demo_retry_$BORG_RUN_DATE 2>/dev/null || echo 0); n=$
 Host: any
 RepeatCount: 3
 RepeatInterval: 1
+StartAfter: 00:00

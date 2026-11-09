@@ -5,3 +5,4 @@ Command: echo "Hello from borg!"
 Host: dev-hosts
 Timeout: 60
 Sensitive: 1
+StartAfter: 00:00

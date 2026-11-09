@@ -9,3 +9,4 @@ Master: any
 Command: echo "connecting to book service..."; echo "BEGIN_CLONE_REPORT"; echo "book1 book:=AAPL report:=risk"; echo "book2 book:=MSFT report:=risk"; echo "book3 book:=GOOG report:=pnl"; echo "END_CLONE_REPORT"; echo "done"
 Flag: -r
 Host: any
+StartAfter: 00:00

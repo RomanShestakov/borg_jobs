@@ -3,3 +3,4 @@ Master: any
 # A plain failure: a non-zero exit with no RepeatCount fails the job at once.
 Command: echo "exiting 7"; exit 7
 Host: any
+StartAfter: 00:00

@@ -2,3 +2,4 @@ Master: any
 # Expect: succeeded
 Command: echo "step1 running"; sleep 2
 Host: any
+StartAfter: 00:00
