@@ -7,4 +7,5 @@ Host: any
 Calendar: us/nyse
 Days: h
 StartAfter: 21:30
+CancelAfter: 22:30
 Timeout: 60
