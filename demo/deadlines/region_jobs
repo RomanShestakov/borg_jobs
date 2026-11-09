@@ -1,14 +1,14 @@
 Master: any
 # Expect: waiting
 # Per-clone deadlines (specs 0024, 0028, 0029, 0121): on a clone proto,
-# StartAfter, LateAfter (fail) and StopAfter (fail) are its clones' deadlines, and may hold
+# StartAfter, FailAfter and StopAfter (fail) are its clones' deadlines, and may hold
 # %<key> placeholders, substituted per clone from its own report line and then
 # parsed with the usual grammar — so the clones of one proto can have different
 # deadlines. The proto itself takes none of them.
 Type: clone
 CloneListSource: PROC<demo/deadlines/gen_regions>
 StartAfter: %<start>
-LateAfter: %<fail> fail
+FailAfter: %<fail>
 StopAfter: %<kill> fail
 Command: echo "region %<clone>: running %<secs>s"; sleep %<secs>
 Host: any

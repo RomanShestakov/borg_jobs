@@ -2,6 +2,6 @@ Master: any
 # Expect: succeeded
 # Same guard, comfortably satisfied: "1+00:00" is midnight *after* the RunDate,
 # so it is still in the future and the job runs normally.
-Command: echo "dispatched well before the LateAfter deadline"
+Command: echo "dispatched well before the FailAfter deadline"
 Host: any
-LateAfter: 1+00:00 fail
+FailAfter: 1+00:00

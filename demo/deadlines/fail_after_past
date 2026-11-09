@@ -1,6 +1,6 @@
 Master: any
 # Expect: failed
-# LateAfter (fail) (spec 0025) is a dispatch-time guard, not a timer: "00:00" on the
+# FailAfter (spec 0025) is a dispatch-time guard, not a timer: "00:00" on the
 # RunDate is already in the past by the time anything is dispatched, so this
 # job fails without ever running (`borg history` shows fail_after, no
 # dispatched). Its dependent below stays `waiting`: a failure does not release
@@ -8,4 +8,4 @@ Master: any
 # deadline is still in the future until its own midnight.)
 Command: echo "you should never see this"
 Host: any
-LateAfter: 00:00 fail
+FailAfter: 00:00
