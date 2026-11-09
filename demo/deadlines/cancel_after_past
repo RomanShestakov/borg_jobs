@@ -6,3 +6,4 @@ Master: any
 Command: echo "you should never see this"
 Host: any
 LateAfter: 00:00 cancel
+StartAfter: 00:00

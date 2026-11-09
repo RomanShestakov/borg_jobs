@@ -5,3 +5,4 @@ Master: any
 Command: echo "working"; sleep 5; echo "finished before the StopAfter deadline"
 Host: any
 StopAfter: 1+00:00 fail
+StartAfter: 00:00

@@ -5,3 +5,4 @@ Master: any
 Command: [ "$GREETING" = "hello" ] && [ -n "$BORG_RUN_DATE" ] && [ -n "$BORG_JOB" ] && [ -n "$BORG_RUN_ID" ] && echo "environment ok: $BORG_JOB on $BORG_RUN_DATE (run $BORG_RUN_ID)"
 EnvVar: GREETING=hello
 Host: any
+StartAfter: 00:00

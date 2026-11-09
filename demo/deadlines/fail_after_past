@@ -9,3 +9,4 @@ Master: any
 Command: echo "you should never see this"
 Host: any
 LateAfter: 00:00 fail
+StartAfter: 00:00

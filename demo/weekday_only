@@ -3,3 +3,4 @@ Master: any
 Command: echo "business day, running for real"
 Host: any
 Days: b || Succeed
+StartAfter: 00:00

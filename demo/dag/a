@@ -3,3 +3,4 @@ Master: any
 # A diamond: a -> (b, c) -> d. d waits for both branches.
 Command: echo "a"
 Host: any
+StartAfter: 00:00

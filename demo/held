@@ -3,3 +3,4 @@ Master: any
 Command: echo "released from manual hold"
 Host: any
 Status: Manual
+StartAfter: 00:00

@@ -8,3 +8,4 @@ Master: any
 Command: echo "sleeping (should be killed)"; sleep 600
 Host: any
 StopAfter: 00:00 fail
+StartAfter: 00:00
